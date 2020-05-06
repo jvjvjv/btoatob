@@ -1,0 +1,80 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <title>B(to)a(to)B</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  </head>
+  <body ng-controller="TranslationController as vm">
+    <div class="jumbotron">
+      <h1 class="display-4">B(to)a(to)B</h1>
+      <p class="lead">
+        Convert a JSON operation into a base64-encoded string and back with <em>literal ease!</em>
+      </p>
+      <hr class="my-4">
+      <p>
+        this was made by Jason Vertucio to help him at work. ENJOY! 😁
+      </p>
+      <!-- <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      </p> -->
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm">
+          <h2>BTOA: Transform JSON to base64 string</h2>
+          <p>Must be Valid JSON</p>
+          <textarea class="form-control" ng-model="btoaText"></textarea>
+          <br>
+          <pre>{{ vm.btoa(btoaText) }}</pre>
+        </div>
+
+        <div class="col-sm">
+          <h2>ATOB: Transform base64 string to JSON</h2>
+          <p>Must be Valid base64-encoded JSON</p>
+          <textarea class="form-control" ng-model="atobText"></textarea>
+          <br>
+          <pre>{{ vm.valid(atobText,'atob') ? (vm.atob(atobText) | json) : ''}}</pre>
+        </div>
+
+    </div>
+
+    <script>
+    angular.module('app', [])
+
+    .controller('TranslationController', function($scope, $locale) {
+      $scope.text = "";
+
+      this.btoa = function(val) {
+        try {
+          let valid = JSON.parse(val.replace(/(\n|\s{2,})/g,''));
+          return btoa(val.replace(/(\n|\s{2,})/g,''));
+        } catch(e) {
+          return null;
+        }
+      }
+
+      this.atob = function(val) {
+        try {
+          return (JSON.parse(atob(val)))
+        } catch(e) {
+          return null;
+        }
+      }
+
+      this.valid = function(val, type) {
+        switch (type) {
+          case 'atob':
+            try {
+              let valid = JSON.parse(atob(val));
+              return true;
+            } catch(e) {
+              return false;
+            }
+            break;
+        }
+      }
+    });
+    </script>
+  </body>
+</html>
