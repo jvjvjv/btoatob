@@ -1,0 +1,27 @@
+{
+  "name": "btoatob",
+  "version": "1.0.1",
+  "description": "Base64-encoding and decoding of JSON objects",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvjvjv/btoatob.git"
+  },
+  "keywords": [
+    "base64"
+  ],
+  "author": "jason vertucio",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jvjvjv/btoatob/issues"
+  },
+  "homepage": "https://github.com/jvjvjv/btoatob#readme",
+  "dependencies": {
+    "angular": "^1.7.9",
+    "bootstrap": "^4.5.0",
+    "webpack": "^4.43.0"
+  }
+}

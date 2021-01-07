@@ -6,6 +6,9 @@ pre {
   word-wrap: break-word;
 }
 
-textarea.form-control {
+textarea.form-control.btoa {
+  height: 24rem;
+}
+textarea.form-control.atob {
   height: 16em;
 }

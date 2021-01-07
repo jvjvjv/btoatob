@@ -23,7 +23,7 @@
         <div class="col-sm-6">
           <h2>BTOA: Transform JSON to base64 string</h2>
           <p>Must be Valid JSON</p>
-          <textarea class="form-control" ng-model="btoaText"></textarea>
+          <textarea class="form-control btoa" ng-model="btoaText"></textarea>
           <br>
           <pre>{{ vm.btoa(btoaText) }}</pre>
         </div>
@@ -31,7 +31,7 @@
         <div class="col-sm-6">
           <h2>ATOB: Transform base64 string to JSON</h2>
           <p>Must be Valid base64-encoded JSON</p>
-          <textarea class="form-control" ng-model="atobText"></textarea>
+          <textarea class="form-control atob" ng-model="atobText"></textarea>
           <br>
           <pre>{{ vm.valid(atobText,'atob') ? (vm.atob(atobText) | json) : ''}}</pre>
         </div>
