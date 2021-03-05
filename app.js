@@ -5,8 +5,9 @@ angular.module('app', [])
 
   this.btoa = function(val) {
     try {
-      let valid = JSON.parse(val.replace(/(\n|\s{2,})/g,''));
-      return btoa(val.replace(/(\n|\s{2,})/g,''));
+      const input = JSON.stringify(eval(`(${val})`));
+      let valid = JSON.parse(input);
+      return btoa(input);
     } catch(e) {
       return null;
     }
