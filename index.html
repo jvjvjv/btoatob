@@ -1,51 +1,88 @@
 <!doctype html>
-<html ng-app="app">
-  <head>
-    <title>B(to)a(to)B</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="app.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
-    <script src="app.js"></script>
-  </head>
-  <body ng-controller="TranslationController as vm">
-    <div class="jumbotron">
-      <h1 class="display-4">B(to)a(to)B</h1>
-      <p class="lead">
-        Convert a JSON operation into a base64-encoded string and back with <em>literal ease!</em>
-      </p>
-      <hr class="my-4">
-      <p>
-        this was made by Jason Vertucio to help him at work. ENJOY! 😁
-      </p>
+<html>
+
+<head>
+  <title>B(to)a(to)B</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="app.css" />
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- <script src="app.js"></script> -->
+</head>
+
+<body>
+  <div class="my-5 row" x-data="btoaText">
+    <div class="col-6">
+      <input x-model="text" type="text" />
     </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-6">
-          <h2>BTOA: Base64encode JSON</h2>
-          <p>Must be Valid JSON</p>
-          <textarea class="form-control btoa" ng-model="btoaText"></textarea>
-          <br>
-          <pre>{{ vm.btoa(btoaText) }}</pre>
-        </div>
+    <div class="col-6">
+      <span x-text="text"></span>
+    </div>
+  </div>
+  </div>
+  <div class="jumbotron">
+    <h1 class="display-4">B(to)a(to)B</h1>
+    <p class="lead">
+      Convert a JSON operation into a base64-encoded string and back with <em>literal ease!</em>
+    </p>
+    <hr class="my-4">
+    <p>
+      this was made by Jason Vertucio to help him at work. ENJOY! 😁
+    </p>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6" x-data="btoaText">
+        <h2>BTOA: Base64encode JSON</h2>
+        <p>Must be Valid JSON</p>
+        <textarea class="form-control btoa" x-model="text"></textarea>
+        <br>
+        <pre x-text="transform"></pre>
+      </div>
 
-        <div class="col-sm-6">
-          <h2>ATOB: Base64decode to JSON</h2>
-          <p>Must be Valid base64-encoded JSON</p>
-          <textarea class="form-control atob" ng-model="atobText"></textarea>
-          <br>
-          <pre>{{ vm.valid(atobText,'atob') ? (vm.atob(atobText) | json) : ''}}</pre>
-        </div>
+      <div class="col-sm-6" x-data="atobText">
+        <h2>ATOB: Base64decode to JSON</h2>
+        <p>Must be Valid base64-encoded JSON</p>
+        <textarea class="form-control atob" x-model="text"></textarea>
+        <br>
+        <pre x-text="transform"></pre>
+      </div>
 
     </div>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11841699-3"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('atobText', () => ({
+          text: '',
+          transform() {
+            try {
+              return JSON.stringify(JSON.parse(atob(this.text)), null, 4);
+            } catch (e) {
+              return null;
+            }
+          }
+        }));
 
-      gtag('config', 'UA-11841699-3');
+        Alpine.data('btoaText', () => ({
+          text: '',
+          valid() {
+            try {
+              let valid = JSON.parse(atob(val));
+              return true;
+            } catch (e) {
+              return false;
+            }
+          },
+          transform() {
+            try {
+              const input = JSON.stringify(eval(`(${this.text})`));
+              const valid = JSON.parse(input);
+              return btoa(input);
+            } catch (e) {
+              return null;
+            }
+          }
+        }));
+      });
     </script>
-  </body>
+</body>
+
 </html>

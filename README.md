@@ -9,7 +9,7 @@ I needed this for work because we would have to use two different websites to he
 
 ## Installation
 
-This page utilizes AngularJS and Bootstrap from CDN.
+This page utilizes Alpine and Bootstrap from a CDN.
 
 Simply clone the repository
 
@@ -20,6 +20,10 @@ $ git clone https://github.com/jvjvjv/btoatob.git <directory>
 and then point your server to that directory.
 
 ## Changelog
+
+### 1.1.0
+
+Switched from AngularJS to Alpine
 
 ### 1.0.1
 

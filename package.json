@@ -1,9 +1,10 @@
 {
   "name": "btoatob",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Base64-encoding and decoding of JSON objects",
   "main": "index.html",
   "scripts": {
+    "dev": "php -S 0.0.0.0:8000 -t .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,8 +21,7 @@
   },
   "homepage": "https://github.com/jvjvjv/btoatob#readme",
   "dependencies": {
-    "angular": "^1.8.0",
-    "bootstrap": "^4.5.0",
-    "webpack": "^4.43.0"
+    "alpinejs": "^3.7.1",
+    "bootstrap": "^4.5.0"
   }
 }
