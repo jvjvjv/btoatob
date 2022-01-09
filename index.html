@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="app.css" />
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="/app.js"></script>
 </head>
 
 <body>
@@ -39,42 +40,6 @@
       </div>
 
     </div>
-
-    <script>
-      document.addEventListener('alpine:init', () => {
-        Alpine.data('atobText', () => ({
-          text: '',
-          transform() {
-            try {
-              return JSON.stringify(JSON.parse(atob(this.text)), null, 4);
-            } catch (e) {
-              return null;
-            }
-          }
-        }));
-
-        Alpine.data('btoaText', () => ({
-          text: '',
-          valid() {
-            try {
-              let valid = JSON.parse(atob(val));
-              return true;
-            } catch (e) {
-              return false;
-            }
-          },
-          transform() {
-            try {
-              const input = JSON.stringify(eval(`(${this.text})`));
-              const valid = JSON.parse(input);
-              return btoa(input);
-            } catch (e) {
-              return null;
-            }
-          }
-        }));
-      });
-    </script>
 </body>
 
 </html>

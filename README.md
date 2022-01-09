@@ -21,6 +21,10 @@ and then point your server to that directory.
 
 ## Changelog
 
+### 1.1.1
+
+Moved code from index to JS file
+
 ### 1.1.0
 
 Switched from AngularJS to Alpine
