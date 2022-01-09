@@ -6,18 +6,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="app.css" />
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <!-- <script src="app.js"></script> -->
 </head>
 
 <body>
-  <div class="my-5 row" x-data="btoaText">
-    <div class="col-6">
-      <input x-model="text" type="text" />
-    </div>
-    <div class="col-6">
-      <span x-text="text"></span>
-    </div>
-  </div>
   </div>
   <div class="jumbotron">
     <h1 class="display-4">B(to)a(to)B</h1>
@@ -48,6 +39,7 @@
       </div>
 
     </div>
+
     <script>
       document.addEventListener('alpine:init', () => {
         Alpine.data('atobText', () => ({
