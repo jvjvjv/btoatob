@@ -1,0 +1,40 @@
+@import "~purecss/build/pure-nr-min";
+
+$grey: #d8d8d8;
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: $grey;
+  padding: 2rem;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+textarea {
+  &.form-control {
+    width: 100%;
+    resize: none;
+    &.btoa {
+      height: 24rem;
+    }
+    &.atob {
+      height: 16em;
+    }
+  }
+}

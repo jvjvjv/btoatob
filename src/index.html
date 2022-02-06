@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="/app.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="pure-g">
+        <section class="pure-u-1">
+          <h1><%= htmlWebpackPlugin.options.title %></h1>
+        </section>
+        <section class="pure-u-1">
+          <p class="lead">
+            Convert a JSON operation into a base64-encoded string and back.
+          </p>
+        </section>
+        <hr class="my-4" hidden>
+        <p hidden>
+          This was made by Jason Vertucio to help him at work. ENJOY! 😁
+        </p>
+      </div>
+    </header>
+
+    <form class="pure-g pure-form">
+      <div class="pure-u-1-24"></div>
+
+      <div class="pure-u-5-12" x-data="btoaText">
+        <h2>BTOA: Base64encode JSON</h2>
+        <p>
+          As you enter text, a base64-encoded string will appear underneath. Of course, the input <strong>must evaluate to valid JSON.</strong>
+        </p>
+        <textarea class="form-control btoa" x-model="text"></textarea>
+        <br>
+        <pre x-text="transform"></pre>
+      </div>
+
+      <div class="pure-u-1-24"></div>
+  
+      <div class="pure-u-5-12" x-data="atobText">
+        <h2>ATOB: Base64decode to JSON</h2>
+        <p>
+          Paste a base64-encoded operation and it will be instantly decoded into a JSON string. Of course, the text input <strong>must evaluate to valid base64-encoded JSON.</strong>
+        </p>
+        <textarea class="form-control atob" x-model="text"></textarea>
+        <br>
+        <pre x-text="transform"></pre>
+      </div>
+    </form>
+  </body>
+</html>
