@@ -1,5 +1,6 @@
 import "./app.scss";
 import Alpine from 'alpinejs';
+import clipboard from 'clipboardy';
 
 Alpine.data('atobText', () => ({
   text: '',
@@ -9,6 +10,9 @@ Alpine.data('atobText', () => ({
     } catch (e) {
       return null;
     }
+  },
+  doCopyText() {
+    clipboard.write(this.transform());
   }
 }));
 
@@ -30,6 +34,9 @@ Alpine.data('btoaText', () => ({
     } catch (e) {
       return null;
     }
+  },
+  doCopyText() {
+    clipboard.write(this.transform());
   }
 }));
 

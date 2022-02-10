@@ -32,6 +32,10 @@ $ npm run serve
 ```
 ## Changelog
 
+### 1.2.0
+
+On a suggestion from a coworker, I added a "Copy" button to copy an output to the clipboard.
+
 ### 1.1.3
 
 Switched to a Webpack-based build/development architecture, which has the `<s>`benefit of creating larger build files and`</s>` will allow for future development in a different framework, if desired. I also gave the product a new title.
