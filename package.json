@@ -24,7 +24,7 @@
     "alpinejs": "^3.7.1",
     "clipboardy": "^3.0.0",
     "purecss": "^2.0.6",
-    "webpack": "^5.68.0",
+    "webpack": "^5.76.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
   },
