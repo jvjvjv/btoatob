@@ -1,6 +1,20 @@
-import "./app.scss";
+import './app.css';
 import Alpine from 'alpinejs';
 import clipboard from 'clipboardy';
+
+Alpine.data('page', () => {
+  return {
+    ready: false,
+    init() {
+      window.addEventListener('DOMContentLoaded', () => {
+        this.$nextTick(() => {
+          this.ready = true;
+          console.log('ready', this.ready);
+        });
+      });
+    }
+  };
+});
 
 Alpine.data('atobText', () => ({
   text: '',

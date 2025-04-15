@@ -6,7 +6,7 @@ export default merge(common, {
   mode: 'production',
   output: {
     filename: 'app.js',
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(import.meta.dirname, '../dist'),
     clean: true,
   },
 });
