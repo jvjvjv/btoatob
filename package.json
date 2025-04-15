@@ -1,6 +1,7 @@
 {
   "name": "btoatob",
   "version": "1.2.0",
+  "type": "module",
   "description": "Base64-encoding and decoding of JSON objects",
   "scripts": {
     "build": "webpack --config build/webpack.prod.js",
