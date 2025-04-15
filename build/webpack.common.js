@@ -1,15 +1,15 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+export default {
   entry: './src/app.js',
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
+          'postcss-loader',
         ]
       }
     ],
