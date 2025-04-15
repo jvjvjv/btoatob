@@ -3,7 +3,9 @@ A quick JavaScript mini-app to help me with stuff at work.
 
 ## History
 
-So, I threw this together in abbout 20 minutes in 2020, using AngularJS of all things. Since its initial creation, I've made _very_ incremental_ changes, but this still remains a useful tool with a terrible architecture. This page also dangerously uses the JavaScript `eval()` method on purpose.
+So, I threw this together in abbout 20 minutes in 2020, using AngularJS of all things. Since its initial creation, I've made _very_ incremental changes, but this still remains a useful tool with a terrible architecture.
+
+**NB:** This page dangerously uses the JavaScript `eval()` method. It is done on purpose, since this code is self-described as having a terrible architecture. Please do not copy my bad habit.
 
 ## Description
 
@@ -31,6 +33,10 @@ $ npm run build
 $ npm run serve
 ```
 ## Changelog
+
+### 1.2.1
+
+While updating the dependencies I also switched out PureCSS and replaced it with Tailwind.
 
 ### 1.2.0
 
@@ -60,4 +66,4 @@ Resized a window.
 
 ### 1.0.0
 
-Initial Release
+Initial Release.
